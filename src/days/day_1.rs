@@ -21,7 +21,7 @@ fn part1(cols: &mut (Vec<i32>, Vec<i32>)) {
         distance += (col1[i] - col2[i]).abs();
     }
 
-    println!("Part 1 Result: {}", distance);
+    println!("Part 1 Answer: {}", distance);
 }
 
 fn part2(cols: &mut (Vec<i32>, Vec<i32>)) {
@@ -38,7 +38,7 @@ fn part2(cols: &mut (Vec<i32>, Vec<i32>)) {
         }
     }
 
-    println!("Part 2 Result: {}", similarity);
+    println!("Part 2 Answer: {}", similarity);
 }
 
 fn read_file() -> Option<(Vec<i32>, Vec<i32>)> {
@@ -51,7 +51,6 @@ fn read_file() -> Option<(Vec<i32>, Vec<i32>)> {
 
         for line in reader.lines() {
             if let Ok(line) = line {
-                let line = line;
                 let parts: Vec<&str> = line.split_whitespace().collect();
 
                 if let (Ok(val1), Ok(val2)) = (parts[0].parse::<i32>(), parts[1].parse::<i32>()) {
