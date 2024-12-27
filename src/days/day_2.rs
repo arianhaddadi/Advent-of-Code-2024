@@ -1,10 +1,18 @@
-use std::{fs::File, io::BufRead, io::BufReader};
+use std::{fs::File, io::BufRead, io::BufReader, io::Result};
 
 pub fn run() {
-    let mut lines = read_file();
-    let mut lines_clone = lines.clone();
-    part1(&mut lines);
-    part2(&mut lines_clone);
+    let lines = read_file();
+    match lines {
+        Ok(mut lines) => {
+            let mut lines_clone = lines.clone();
+            part1(&mut lines);
+            part2(&mut lines_clone);
+        }
+        Err(e) => {
+            println!("Error reading file: {}", e);
+        }
+    }
+    
 }
 
 fn is_safe(line: &mut Vec<u32>, i: u32, mut tolerate: bool) -> bool {
@@ -33,7 +41,7 @@ fn is_safe(line: &mut Vec<u32>, i: u32, mut tolerate: bool) -> bool {
         line[i + 1] = cache;
         tolerate = false;
     }
-    return is_safe(line, (i + 1) as u32, tolerate);
+    is_safe(line, (i + 1) as u32, tolerate)
 }
 
 fn part1(lines: &mut Vec<Vec<u32>>) {
@@ -66,21 +74,18 @@ fn part2(lines: &mut Vec<Vec<u32>>) {
     println!("Part 2 Answer: {}", num_safes);
 }
 
-fn read_file() -> Vec<Vec<u32>> {
+fn read_file() -> Result<Vec<Vec<u32>>> {
     let mut lines: Vec<Vec<u32>> = Vec::new();
-    let file = File::open("../inputs/day_2.txt");
-    if let Ok(file) = file {
-        let reader = BufReader::new(file);
+    let file = File::open("../inputs/day_2.txt")?;
+    let reader = BufReader::new(file);
 
-        for line in reader.lines() {
-            if let Ok(line) = line {
-                lines.push(
-                    line.split_whitespace()
-                        .map(|s| s.parse().unwrap())
-                        .collect(),
-                );
-            }
-        }
+    for line in reader.lines() {
+        let line = line?;
+        lines.push(
+            line.split_whitespace()
+                .map(|s| s.parse().unwrap())
+                .collect(),
+        );
     }
-    lines
+    Ok(lines)
 }
