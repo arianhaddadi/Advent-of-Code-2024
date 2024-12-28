@@ -12,7 +12,6 @@ pub fn run() {
             println!("Error reading file: {}", e);
         }
     }
-    
 }
 
 fn is_safe(line: &mut Vec<u32>, i: u32, mut tolerate: bool) -> bool {
