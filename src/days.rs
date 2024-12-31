@@ -7,6 +7,7 @@ mod day_6;
 mod day_7;
 
 pub fn run(day_num: u8) {
+    println!("===================Day{}=========================", day_num);
     match day_num {
         1 => day_1::run(),
         2 => day_2::run(),
