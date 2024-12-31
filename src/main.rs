@@ -1,5 +1,5 @@
 mod days;
 
 fn main() {
-    days::run(5);
+    days::run(6);
 }
