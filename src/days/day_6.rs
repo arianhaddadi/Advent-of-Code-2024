@@ -1,8 +1,7 @@
-use std::cmp::PartialEq;
-use std::collections::HashMap;
-use std::fmt::{Display, Formatter};
 use std::{
-    collections::HashSet,
+    cmp::PartialEq,
+    collections::{HashMap, HashSet},
+    fmt::{Display, Formatter},
     fs::File,
     io::{BufRead, BufReader, Result},
 };
