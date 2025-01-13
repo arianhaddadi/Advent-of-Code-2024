@@ -116,7 +116,7 @@ fn read_file() -> Result<(Vec<u64>, Vec<Vec<u64>>)> {
     let mut results: Vec<u64> = Vec::new();
     let mut numbers: Vec<Vec<u64>> = Vec::new();
 
-    let file = File::open("../inputs/day_7.txt")?;
+    let file = File::open(format!("{}/inputs/day_7.txt", env!("CARGO_MANIFEST_DIR")))?;
     let reader = BufReader::new(file);
     for line in reader.lines() {
         let line = line?;

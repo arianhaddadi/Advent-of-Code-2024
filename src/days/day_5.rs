@@ -89,7 +89,7 @@ fn read_file() -> Result<(Vec<String>, Vec<String>)> {
     let mut rules: Vec<String> = Vec::new();
     let mut updates: Vec<String> = Vec::new();
 
-    let file = File::open("../inputs/day_5.txt")?;
+    let file = File::open(format!("{}/inputs/day_5.txt", env!("CARGO_MANIFEST_DIR")))?;
     let reader = BufReader::new(file);
 
     let mut is_reading_rules = true;

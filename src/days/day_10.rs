@@ -84,7 +84,7 @@ fn part2(grid: &Vec<Vec<u8>>) {
 fn read_file() -> Result<Vec<Vec<u8>>> {
     let mut grid: Vec<Vec<u8>> = Vec::new();
 
-    let file = File::open("../inputs/day_10.txt")?;
+    let file = File::open(format!("{}/inputs/day_10.txt", env!("CARGO_MANIFEST_DIR")))?;
     let reader = BufReader::new(file);
 
     for line in reader.lines() {

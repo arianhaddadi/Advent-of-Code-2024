@@ -115,7 +115,7 @@ fn part2(stones: Vec<Stone>) {
 fn read_file() -> Result<Vec<u64>> {
     let mut nums: Vec<u64> = Vec::new();
 
-    let file = File::open("../inputs/day_11.txt")?;
+    let file = File::open(format!("{}/inputs/day_11.txt", env!("CARGO_MANIFEST_DIR")))?;
     let reader = BufReader::new(file);
 
     for line in reader.lines() {

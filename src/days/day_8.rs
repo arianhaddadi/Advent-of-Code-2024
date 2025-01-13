@@ -105,7 +105,7 @@ fn process_map(map: &Vec<String>) -> HashMap<char, Vec<(isize, isize)>> {
 
 fn read_file() -> Result<Vec<String>> {
     let mut map: Vec<String> = Vec::new();
-    let file = File::open("../inputs/day_8.txt")?;
+    let file = File::open(format!("{}/inputs/day_8.txt", env!("CARGO_MANIFEST_DIR")))?;
     let reader = BufReader::new(file);
 
     for line in reader.lines() {

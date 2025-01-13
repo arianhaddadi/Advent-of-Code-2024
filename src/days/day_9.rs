@@ -154,7 +154,7 @@ fn part2(disk_map: &String) {
 
 fn read_file() -> Result<String> {
     let mut disk_map: String = String::new();
-    let file = File::open("../inputs/day_9.txt")?;
+    let file = File::open(format!("{}/inputs/day_9.txt", env!("CARGO_MANIFEST_DIR")))?;
     let reader = BufReader::new(file);
 
     for line in reader.lines() {

@@ -75,7 +75,7 @@ fn part2(lines: &mut Vec<Vec<u32>>) {
 
 fn read_file() -> Result<Vec<Vec<u32>>> {
     let mut lines: Vec<Vec<u32>> = Vec::new();
-    let file = File::open("../inputs/day_2.txt")?;
+    let file = File::open(format!("{}/inputs/day_2.txt", env!("CARGO_MANIFEST_DIR")))?;
     let reader = BufReader::new(file);
 
     for line in reader.lines() {

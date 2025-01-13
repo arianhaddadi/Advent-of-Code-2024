@@ -50,7 +50,7 @@ fn read_file() -> Result<(Vec<i32>, Vec<i32>)> {
     let mut column1: Vec<i32> = Vec::new();
     let mut column2: Vec<i32> = Vec::new();
 
-    let file = File::open("../inputs/day_1.txt")?;
+    let file = File::open(format!("{}/inputs/day_1.txt", env!("CARGO_MANIFEST_DIR")))?;
     let reader = BufReader::new(file);
 
     for line in reader.lines() {

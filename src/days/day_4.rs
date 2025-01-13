@@ -171,7 +171,7 @@ fn part2(lines: &Vec<String>) {
 fn read_file() -> Result<Vec<String>> {
     let mut lines: Vec<String> = Vec::new();
 
-    let file = File::open("../inputs/day_4.txt")?;
+    let file = File::open(format!("{}/inputs/day_4.txt", env!("CARGO_MANIFEST_DIR")))?;
     let reader = BufReader::new(file);
 
     for line in reader.lines() {
